@@ -15,7 +15,7 @@ class ThreadRunner
       product_to_queue_func: products_to_queue()
     )
     @thread_func     = thread_func
-    @product_func = product_func
+    @product_func    = product_func
     @thread_count    = thread_count
     @monitoring_time = monitoring_time
     @init_func       = init_func
@@ -38,7 +38,7 @@ class ThreadRunner
   
   private
   
-  # start threads for download operation
+  # start threads for operation
   def main_thread
     -> queue {
       return false if @thread_count <= 0
@@ -57,7 +57,7 @@ class ThreadRunner
 
   # monitor
   def monitor_thread
-  -> queue {
+    -> queue {
       return false if @monitoring_time <= 0
       
       while queue.size > 0
